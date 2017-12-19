@@ -13,7 +13,7 @@
   <section>
     <div class="container-fluid">
       <div class="col-md-12">
-        <div class="text-muted"><legend><h3>Graphical Overview</h3></legend></div>
+        <div class="text-muted"><legend><h3>Graphical Overview of the last Calculated Account Balance</h3></legend></div>
         <div class="col-sm-6 offset-sm-3">
           <div class="w3-col m4 l6">
             <canvas id="myChart"></canvas>
@@ -27,14 +27,24 @@
           <table class="table table-striped">
             <thead>
             <tr>
-              <td><b>Account Type</b></td>
-              <td><b>Account Balance</b></td>
+              <td><b>Account ID </b></td>
+              <td><b>R & D</b></td>
+              <td><b>Canteen</b></td>
+              <td><b>CEO's Car</b></td>
+              <td><b>Marketing</b></td>
+              <td><b>Parking Fines</b></td>
+              <td><b>Calculated Date</b></td>
             </tr>
             </thead>
             <tbody>
             <tr repeat.for="account of accounts">
-              <td>${account.type}</td>
-              <td>${account.balance}</td>
+              <td>${account.accountBalanceId}</td>
+              <td>${account.rAndD}</td>
+              <td>${account.canteen}</td>
+              <td>${account.ceoCar}</td>
+              <td>${account.marketing}</td>
+              <td>${account.parkingFines}</td>
+              <td>${account.calculateddDate}</td>
             </tr>
             </tbody>
           </table>

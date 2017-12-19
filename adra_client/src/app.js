@@ -10,42 +10,49 @@ export class App {
   constructor(api) {
     this.api = api;
     this.title = 'Aurelia, C# Integration Assignment ';
-    this.accounts = [
-      {"type": "R&D", "balance": "5.63"},
-      {"type": "Canteen", "balance": "50000"},
-      {"type": "CEO’s car", "balance": "10000"},
-      {"type": "Parking fines", "balance": "2000"}];
 
-    this.keyArray = [];
-    this.valueArray = [];
   }
   attached() {
     this.generateBarChart();
   }
-  detachKeyAndValueFromJsonArray = (jsonArray) => {
-    jsonArray.forEach(function(json) {
-      this.keyArray.push(json.type);
-      this.valueArray.push(json.balance)
-    });
-  }
+
   generateBarChart = () => {
+    this.api.fetchAccountBalance().then(accounts => {
+        this.accounts = accounts;
+        this.loadBarChart();
+      }).catch(error => {
 
-    // this.detachKeyAndValueFromJsonArray(this.accounts);
-    this.api.fetchAccountBalance();
-      const dataPoints = [21,14,28,35,7,64];
-      console.log('datapoints', dataPoints);
+        // this data will get triggered for Internal server error situation from the server.
+        this.accounts = [
+          {
+            "accountBalanceId": "SampleDataID",
+            "rAndD": 5.63,
+            "canteen": 50000,
+            "ceoCar": 10000,
+            "marketing": -600,
+            "parkingFines": 200,
+            "calculateddDate": "2017-01-01T00:00:00"
+          }
+        ];
+        this.loadBarChart();
+    });
 
-      var ctx = document.getElementById("myChart");
 
 
+  }
 
-    var myChart = new Chart(ctx, {
+  loadBarChart(){
+    var keys = Object.keys(this.accounts[0]);
+    var values = Object.values(this.accounts[this.accounts.length-1]);
+    var ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: [21,14,28,35,7,64],
+        labels: keys.splice(1, keys.length - 2),
         datasets: [{
           label: '$',
-          data: [21,14,28,35,7,64],
+          data: values.splice(1, values.length - 2),
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
