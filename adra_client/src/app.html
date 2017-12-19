@@ -1,3 +1,41 @@
 <template>
-  <h1>${message}</h1>
+
+  <center><h4><b><i>${header}</i></b></h4></center>
+
+  <!-- first, we include the Bootstrap css, which was bundled as "css/bootstrap.css" -->
+  <require from="bootstrap/css/bootstrap.css"></require>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+
+          <div class="row text-center placeholders">
+            <div class="col-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <div class="text-muted">Graphical Overview</div>
+            </div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <td><b>Account Type</b></td>
+              <td><b>Account Balance</b></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr repeat.for="account of accounts">
+              <td>${account.type}</td>
+              <td>${account.balance}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+    </div>
 </template>
