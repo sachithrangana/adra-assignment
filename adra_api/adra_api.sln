@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adra_api", "adra_api\adra_api.csproj", "{80E18C03-74BC-4BAB-8AB6-0C5A48A9B5E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adra_api.Tests", "adra_api.Tests\adra_api.Tests.csproj", "{55736D3B-0213-47B9-B8BD-69946E6E3B8C}"
@@ -19,5 +20,8 @@ Global
 		{55736D3B-0213-47B9-B8BD-69946E6E3B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55736D3B-0213-47B9-B8BD-69946E6E3B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55736D3B-0213-47B9-B8BD-69946E6E3B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

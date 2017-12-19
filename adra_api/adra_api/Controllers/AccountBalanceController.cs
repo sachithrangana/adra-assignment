@@ -24,11 +24,11 @@ namespace adra_api.Controllers
                 var result = accountBalanceRepository.getAccountBalanceDetails();
                 return Ok(result);  
             }  
-            catch (Exception)  
+            catch (Exception e)  
             {  
                 
                 //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned  
-                return InternalServerError();  
+                return InternalServerError(e);  
             }  
         } 
     }
