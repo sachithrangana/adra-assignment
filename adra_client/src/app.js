@@ -19,7 +19,7 @@ export class App {
   generateBarChart = () => {
     this.api.fetchAccountBalance().then(accounts => {
         this.accounts = accounts;
-        this.loadBarChart();
+        this.loadBarChart(this.accounts);
       }).catch(error => {
 
         // this data will get triggered for Internal server error situation from the server.
@@ -34,16 +34,16 @@ export class App {
             "calculateddDate": "2017-01-01T00:00:00"
           }
         ];
-        this.loadBarChart();
+        this.loadBarChart(this.accounts);
     });
 
 
 
   }
 
-  loadBarChart(){
-    var keys = Object.keys(this.accounts[0]);
-    var values = Object.values(this.accounts[this.accounts.length-1]);
+  loadBarChart(accounts){
+    var keys = Object.keys(accounts[0]);
+    var values = Object.values(accounts[accounts.length-1]);
     var ctx = document.getElementById("myChart");
 
     new Chart(ctx, {
