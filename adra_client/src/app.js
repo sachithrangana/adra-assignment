@@ -36,9 +36,6 @@ export class App {
         ];
         this.loadBarChart(this.accounts);
     });
-
-
-
   }
 
   loadBarChart(accounts){
